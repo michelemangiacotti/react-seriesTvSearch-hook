@@ -6,7 +6,7 @@ export interface TvSeriesSearchProps {
 
 export const TvSeriesSearch: React.FC<TvSeriesSearchProps> = ({search}) =>{
 
-    const [text, setText] = useState<string>('soprano')
+    const [text, setText] = useState<string>('')
 
     const searchHandler = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
