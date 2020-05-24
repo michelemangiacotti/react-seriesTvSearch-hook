@@ -1,25 +1,21 @@
-import React, { useState } from 'react';
-import './App.css';
+import React from 'react';
+import './components/TvSeriesResult.module.css';
+import {TvSeriesResult} from "./components/TvSeriesResult";
+import {TvSeriesSearch} from "./components/TvSeriesSearch";
+import {useTvSeries} from "./hooks/useTvSeries";
+import {TvSeriesShowDetails} from "./components/TvSeriesShowDetails";
+
 
 const App = () => {
-  const [text, setText] = useState<string>('soprano')
+    const {itemClick,series,search, details, closeModal } = useTvSeries();
 
-  const onChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setText(event.target.value);
-  };
-
-  return (
-    <div >
-      <form action="">
-        <input
-          type="text"
-          placeholder = "Search TV Series"
-          value = {text}
-          onChange = {onChangeHandler}
-        />
-      </form>
-    </div>
-  );
+    return (
+        <div>
+            <TvSeriesSearch search={search}/>
+            <TvSeriesResult result={series} itemClick={itemClick}/>
+            <TvSeriesShowDetails show={details} />
+        </div>
+    );
 }
 
 export default App;
