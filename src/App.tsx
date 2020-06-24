@@ -13,7 +13,7 @@ const App = () => {
         <div>
             <TvSeriesSearch search={search}/>
             <TvSeriesResult result={series} itemClick={itemClick}/>
-            <TvSeriesShowDetails show={details} />
+            <TvSeriesShowDetails show={details}  onClose={closeModal}/>
         </div>
     );
 }
